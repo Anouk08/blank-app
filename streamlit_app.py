@@ -109,45 +109,6 @@ elif rolle == "📊 Trainer":
                         st.markdown(f"**Muskelkater:** {mk_status}")
                         st.markdown(f"**Stresslevel:** {stress_status}")
                         
-                   with col2:
+                    with col2:
                         fig = go.Figure()
-                        fig = go.Figure()
-                        fig.add_trace(go.Scatter(x=athleten_daten["Datum"], y=athleten_daten["Schlaf_Stunden"], name="Schlaf (h)", mode="lines+markers", line=dict(color="#1f77b4", width=3)))
-                        fig.add_trace(go.Scatter(x=athleten_daten["Datum"], y=athleten_daten["Stimmung_Wert"], name="Stimmung", mode="lines+markers", line=dict(color="#ff7f0e", width=2, dash="dash"), yaxis="y2"))
-                          
-                        fig.update_layout(
-                            height=200, 
-                            margin=dict(l=20, r=20, t=10, b=20), 
-                            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-                            xaxis=dict(
-                                type="date",
-                                tickformat="%d.%m.%Y",
-                                tickmode="linear"
-                            ),
-                            yaxis=dict(
-                                title=dict(text="Schlaf (h)", font=dict(color="#1f77b4")), 
-                                range=[0, 12], 
-                                tickfont=dict(color="#1f77b4")
-                            ),
-                            yaxis2=dict(
-                                title=dict(text="Stimmung", font=dict(color="#ff7f0e")), 
-                                range=[1, 5], 
-                                tickfont=dict(color="#ff7f0e"), 
-                                overlaying="y", 
-                                side="right"
-                            )
-                        )
-                        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
-                
-                st.markdown("<br>", unsafe_allow_html=True) # Abstand zwischen den Athleten-Karten
-                
-            # Gesamttabelle ganz unten eininkludieren
-            with st.expander("📋 Gesamte rohe Datentabelle anzeigen"):
-                st.dataframe(df, use_container_width=True)
-        else:
-            st.info("Es wurden noch keine Check-Ins von Athleten hochgeladen. Die CSV-Datei ist aktuell leer.")
-            
-    elif passwort != "":
-        st.error("Falsches Passwort! Zugriff verweigert.")
-    else:
-        st.warning("🔒 Bitte gib das Trainer-Passwort in der linken Seitenleiste ein, um die geschützten Daten freizuschalten.")
+                        fig.add_trace(go.Scatter(x=athleten_daten["Datum"], y=athleten_daten["Schlaf_Stunden"], name="Schlaf (h)", mode="lines+markers", line=dict(color="#1f77
