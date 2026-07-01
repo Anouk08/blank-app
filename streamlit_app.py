@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import date
 import os
+import plotly.graph_objects as go  # <-- Hier nach oben verschoben!
 
 # Name der Datei, in der wir die Daten lokal speichern wollen
 DATEN_DATEI = "athleten_daten.csv"
@@ -109,7 +110,7 @@ elif rolle == "📊 Trainer":
                         st.markdown(f"**Stresslevel:** {stress_status}")
                         
                     with col2:
-                        import plotly.graph_objects as go
+                        # Das 'import' hier unten wurde entfernt
                         fig = go.Figure()
                         fig.add_trace(go.Scatter(x=athleten_daten["Datum"], y=athleten_daten["Schlaf_Stunden"], name="Schlaf (h)", mode="lines+markers", line=dict(color="#1f77b4", width=3)))
                         fig.add_trace(go.Scatter(x=athleten_daten["Datum"], y=athleten_daten["Stimmung_Wert"], name="Stimmung", mode="lines+markers", line=dict(color="#ff7f0e", width=2, dash="dash"), yaxis="y2"))
